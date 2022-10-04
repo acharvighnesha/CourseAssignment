@@ -1,7 +1,7 @@
-module "sg-private" {
+module "sg_private" {
   source = "terraform-aws-modules/security-group/aws"
 
-  name        = "sg-private"
+  name        = "sg_private"
   description = "Security group jenkins and applications"
   vpc_id      = module.vpc.vpc_id
 
@@ -25,10 +25,10 @@ module "sg-private" {
   ]
 }
 
-module "sg-ssh" {
+module "sg_ssh" {
   source = "terraform-aws-modules/security-group/aws"
 
-  name        = "sg-ssh"
+  name        = "sg_ssh"
   description = "Security group for ssh into bastion"
   vpc_id      = module.vpc.vpc_id
 
