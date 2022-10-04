@@ -15,7 +15,6 @@ module "ec2_private_1"{
     Environment = "dev"
     Name        = "jenkins"
   }
-  depends_on = [vpc]
 }
 
 module "ec2_private_2"{
@@ -35,5 +34,4 @@ module "ec2_private_2"{
     Environment = "dev"
     Name        = "app"
   }
-  depends_on = [sg-private]
 }

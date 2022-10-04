@@ -15,5 +15,4 @@ module "ec2_public" {
     Environment = "dev"
     Name        = "bastion"
   }
-  depends_on = [sg-ssh]
 }
