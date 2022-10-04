@@ -1,7 +1,7 @@
-module "sg-private" {
+module "sg_private" {
   source = "terraform-aws-modules/security-group/aws"
 
-  name        = "sg-private"
+  name        = "sg_private"
   description = "Security group jenkins and applications"
   vpc_id      = module.vpc.vpc_id
 
@@ -11,7 +11,7 @@ module "sg-private" {
       to_port     = 80
       protocol    = "tcp"
       description = "ssh ports"
-      cidr_blocks = aws_vpc.vighnesha.cidr_block
+      cidr_blocks = "10.0.0.0/16"
     }
   ]
   egress_with_cidr_blocks = [
@@ -25,10 +25,10 @@ module "sg-private" {
   ]
 }
 
-module "sg-ssh" {
+module "sg_ssh" {
   source = "terraform-aws-modules/security-group/aws"
 
-  name        = "sg-ssh"
+  name        = "sg_ssh"
   description = "Security group for ssh into bastion"
   vpc_id      = module.vpc.vpc_id
 
@@ -38,7 +38,7 @@ module "sg-ssh" {
       to_port     = 80
       protocol    = "tcp"
       description = "ssh ports"
-      cidr_blocks = "0.0.0.0/16"
+      cidr_blocks = "0.0.0.0/0"
     }
   ]
   egress_with_cidr_blocks = [
@@ -50,5 +50,4 @@ module "sg-ssh" {
       cidr_blocks = "0.0.0.0/0"
     }
   ]
-}
 }

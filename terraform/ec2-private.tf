@@ -5,9 +5,10 @@ module "ec2_private_1"{
   name = "jenkins"
 
   ami                    = "ami-08c40ec9ead489470"
-  instance_type          = "t2.micro"
+  instance_type          = "t2.medium"
+  key_name               = "upgradvig"
   monitoring             = true
-  vpc_security_group_ids = [module.sg-private.security_group_id]
+  vpc_security_group_ids = [module.sg_private.security_group_id]
   subnet_id              = module.vpc.private_subnets[1]
 
   tags = {
@@ -24,9 +25,10 @@ module "ec2_private_2"{
   name = "application"
 
   ami                    = "ami-08c40ec9ead489470"
-  instance_type          = "t2.micro"
+  instance_type          = "t2.medium"
+  key_name               = "upgradvig"
   monitoring             = true
-  vpc_security_group_ids = [module.sg-private.security_group_id]
+  vpc_security_group_ids = [module.sg_private.security_group_id]
   subnet_id              = module.vpc.private_subnets[1]
 
   tags = {
