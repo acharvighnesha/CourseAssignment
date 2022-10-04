@@ -38,7 +38,7 @@ module "sg_ssh" {
       to_port     = 80
       protocol    = "tcp"
       description = "ssh ports"
-      cidr_blocks = "0.0.0.0/16"
+      cidr_blocks = "0.0.0.0/0"
     }
   ]
   egress_with_cidr_blocks = [
