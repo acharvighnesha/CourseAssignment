@@ -11,7 +11,7 @@ module "sg-private" {
       to_port     = 80
       protocol    = "tcp"
       description = "ssh ports"
-      cidr_blocks = module.vpc.cidr_block
+      cidr_blocks = "10.0.0.0/16"
     }
   ]
   egress_with_cidr_blocks = [
