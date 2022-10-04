@@ -14,11 +14,15 @@ module "sg-private" {
       cidr_blocks = aws_vpc.vighnesha.cidr_block
     }
   ]
-  egress {
-  from_port   = 0
-  to_port     = 0
-  protocol    = "-1"
-  cidr_blocks = ["0.0.0.0/0"]
+  egress_with_cidr_blocks = [
+    {
+      from_port   = 0
+      to_port     = 65535
+      protocol    = "tcp"
+      description = "outbound traffic"
+      cidr_blocks = "0.0.0.0/0"
+    }
+  ]
 }
 }
 
@@ -39,10 +43,14 @@ module "sg-ssh" {
       cidr_blocks = "0.0.0.0/16"
     }
   ]
-  egress {
-  from_port   = 0
-  to_port     = 0
-  protocol    = "-1"
-  cidr_blocks = ["0.0.0.0/0"]
+  egress_with_cidr_blocks = [
+    {
+      from_port   = 0
+      to_port     = 65535
+      protocol    = "tcp"
+      description = "outbound traffic"
+      cidr_blocks = "0.0.0.0/0"
+    }
+  ]
 }
 }
