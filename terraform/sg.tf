@@ -23,7 +23,7 @@ module "sg-private" {
       cidr_blocks = "0.0.0.0/0"
     }
   ]
-  depends_on = [aws_vpc.vighnesha]
+  depends_on = [vpc]
 }
 
 module "sg-ssh" {
@@ -51,5 +51,5 @@ module "sg-ssh" {
       cidr_blocks = "0.0.0.0/0"
     }
   ]
-  depends_on = [aws_vpc.vighnesha]
+  depends_on = [vpc]
 }
