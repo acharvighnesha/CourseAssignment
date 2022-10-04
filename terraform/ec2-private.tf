@@ -6,6 +6,7 @@ module "ec2_private_1"{
 
   ami                    = "ami-08c40ec9ead489470"
   instance_type          = "t2.micro"
+  key_name               = "upgradvig"
   monitoring             = true
   vpc_security_group_ids = [module.sg_private.security_group_id]
   subnet_id              = module.vpc.private_subnets[1]
@@ -25,6 +26,7 @@ module "ec2_private_2"{
 
   ami                    = "ami-08c40ec9ead489470"
   instance_type          = "t2.micro"
+  key_name               = "upgradvig"
   monitoring             = true
   vpc_security_group_ids = [module.sg_private.security_group_id]
   subnet_id              = module.vpc.private_subnets[1]
