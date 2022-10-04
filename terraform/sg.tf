@@ -24,8 +24,6 @@ module "sg-private" {
     }
   ]
 }
-}
-
 
 module "sg-ssh" {
   source = "terraform-aws-modules/security-group/aws"
