@@ -15,4 +15,5 @@ module "ec2_public" {
     Environment = "dev"
     Name        = "bastion"
   }
+  depends_on = [aws_vpc.vighnesha]
 }
