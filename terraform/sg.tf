@@ -11,7 +11,7 @@ module "sg-private" {
       to_port     = 80
       protocol    = "tcp"
       description = "ssh ports"
-      cidr_blocks = aws_vpc.vighnesha.cidr_block
+      cidr_blocks = module.vpc.cidr_block
     }
   ]
   egress_with_cidr_blocks = [
