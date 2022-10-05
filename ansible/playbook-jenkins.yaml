@@ -1,0 +1,13 @@
+---
+- hosts: jenkins
+  remote_user: ubuntu
+  become: true
+  tasks:
+    - name: deploy jenkins docker container
+      docker_container:
+        image: jenkins:latest
+        name: jenkins
+        state: started
+        auto_remove: true
+        ports:
+          - "8080:80"
